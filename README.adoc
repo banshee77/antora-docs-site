@@ -39,7 +39,7 @@ git clone https://github.com/banshee77/antora-docs-site.git
 
 cd antora-docs-site
 
-antora antora-playbook.yaml
+antora antora-playbook.yml
 ----
 
 output:

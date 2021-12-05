@@ -3,6 +3,7 @@
 // :idseparator: -
 // URIs:
 :uri-project: https://antora.org
+:uri-docs: https://docs.antora.org
 :uri-org: https://github.com/banshee77
 :uri-repo: {uri-org}/antora-docs-site
 :uri-demo-playbook: {uri-repo}/blob/master/antora-playbook.yaml
@@ -13,11 +14,16 @@
 
 This is the playbook project for the Antora demonstration site.
 
-To generate the demo site using this playbook project and the demo documentation sites, you'll need to {uri-docs-install}[install the Antora CLI and default site generator].
+To generate the demo site using this playbook project and the demo documentation sites, you'll need to install the Antora CLI.
+
+----
+npm i -g @antora/cli@2.3 @antora/site-generator-default@2.3
+antora -v
+----
 
 == Playbook
 
-An {uri-docs-playbook}[Antora playbook] is responsible for generating a documentation site.
+An {uri-demo-playbook}[Antora playbook] is responsible for generating a documentation site.
 It contains the instructions a user wants to relay to an Antora site generator pipeline.
 These instructions include the content Antora should collect and the UI it should apply to the generated site.
 
@@ -26,4 +32,63 @@ It tells Antora where to find the Site A and Site B remote content repositories 
 
 == Generate the Demo Site
 
-Once you've installed Antora and {uri-demo-playbook}[saved the demo playbook] ([.path]_antora-playbook.yaml_) to a local directory, you're ready to {uri-docs-run}[run Antora].
+Clone repository and run Antora
+
+----
+git clone https://github.com/banshee77/antora-docs-site.git
+
+cd antora-docs-site
+
+antora antora-playbook.yaml
+----
+
+output:
+----
+----
+
+Open demo site in the browser:
+
+----
+start build\site\index.html
+----
+
+== Run Demo Site on Local Server
+
+Install the http-server package globally using npm:
+
+----
+node -v
+
+npm i -g http-server
+
+http-server build/site -c-1 -p5000
+----
+
+output similar to:
+
+----
+Starting up http-server, serving build/site
+
+http-server version: 14.0.0
+
+http-server settings: 
+CORS: disabled
+Cache: -1 seconds
+Connection Timeout: 120 seconds
+Directory Listings: visible
+AutoIndex: visible
+Serve GZIP Files: false
+Serve Brotli Files: false
+Default File Extension: none
+
+Available on:
+  http://192.168.99.1:5000
+  http://127.0.0.1:5000
+Hit CTRL-C to stop the server
+----
+
+
+== Resources
+
+* {uri-project}[Antora Project]
+* {uri-docs}[Antora Docs]

@@ -1,0 +1,27 @@
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="{{{or site.url (or siteRootUrl siteRootPath)}}}">{{site.title}}</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <div class="navbar-item has-dropdown is-hoverable">
+          <div class="navbar-link">Repositories</div>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="{{{relativize (resolvePageURL 'burger-builder::index.adoc')}}}">Burger Builder</a>
+            <a class="navbar-item" href="{{{relativize (resolvePageURL 'jenkins-configuration-as-code::index.adoc')}}}">Jenkins Configuration as Code</a>
+            <a class="navbar-item" href="{{{relativize (resolvePageURL 'site-a::index.adoc')}}}">Site A</a>
+            <a class="navbar-item" href="{{{relativize (resolvePageURL 'site-a::index.adoc')}}}">Site A</a>
+            <a class="navbar-item" href="{{{relativize (resolvePageURL 'site-b::index.adoc')}}}">Site B</a>
+          </div>
+        </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>

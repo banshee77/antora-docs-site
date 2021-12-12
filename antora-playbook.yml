@@ -1,15 +1,22 @@
 site:
-  title: Antora Demo Site
-  url: https://github.com/banshee77/antora-docs-site
-  start_page: site-b::index.adoc
+  title: Banshee77 Docs
+  url: https://github.com/banshee77/antora-docs-site.git
+  start_page: jenkins-configuration-as-code::index.adoc
 content:
   sources:
   - url: https://github.com/banshee77/antora-docs-site-a.git
     branches: main
-  # - url: https://github.com/banshee77/antora-docs-site-b.git
-  #   branches: [main, v2.0, v1.0]
-  #   start_path: docs
+  - url: https://github.com/banshee77/jcasc.git
+    branches: main
+    start_path: docs
+  - url: https://github.com/banshee77/burger-builder.git
+    branches: master
+    start_path: docs
+  - url: https://github.com/banshee77/antora-docs-site-b.git
+    branches: [main, v2.0, v1.0]
+    start_path: docs
 ui:
   bundle:
-    url: https://gitlab.com/antora/antora-ui-default/-/jobs/artifacts/HEAD/raw/build/ui-bundle.zip?job=bundle-stable
+    url: ui/ui-bundle-antora.zip
     snapshot: true
+  supplemental_files: ui

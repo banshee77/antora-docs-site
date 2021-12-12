@@ -1,0 +1,8 @@
+{
+  "name": "asciidoctor-docs-netlify",
+  "description": "Asciidoctor Docs (Production and Deploy Previews)",
+  "private": true,
+  "devDependencies": {
+    "antora": "3.0.0-rc.2"
+  }
+}

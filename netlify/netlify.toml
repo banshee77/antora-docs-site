@@ -1,0 +1,43 @@
+[build]
+publish = "public"
+ignore = "false"
+
+[build.environment]
+NODE_VERSION = "16"
+NPM_FLAGS = "--no-optional"
+# or use low-level NPM_CONFIG_ flag
+#NPM_CONFIG_OPTIONAL = "false"
+ANTORA_CACHE_DIR = "~+/node_modules/.cache/antora"
+ALGOLIA_IDX_NAME = "asciidoctor-docs-replica"
+
+[build.processing]
+skip_processing = false
+
+[build.processing.html]
+# NOTE must be set to enable forwarding of paths like /asciidoc/latest to /asciidoc/latest/
+pretty_urls = true
+
+[build.processing.images]
+compress = true
+
+[context.deploy-preview]
+command = """\
+node_modules/.bin/antora --fetch --html-url-extension-style=indexify --redirect-facility=netlify --to-dir=public --url $DEPLOY_PRIME_URL ../antora-playbook.yml\
+"""
+
+[[plugins]]
+package = "netlify-plugin-checklinks"
+
+[plugins.inputs]
+entryPoints = ["**/*.html"]
+recursive = true
+pretty = true
+skipPatterns = [" href=\"file://"]
+todoPatterns = []
+checkExternal = false
+followSourceMaps = false
+
+[[headers]]
+for = "/_/font/*"
+  [headers.values]
+  Cache-Control = "public,max-age=604800"

@@ -9,7 +9,7 @@
       </button>
     </div>
     <div id="topbar-nav" class="navbar-menu">
-      <div class="navbar-end">
+      <div class="navbar-start">
         <div class="navbar-item has-dropdown is-hoverable">
           <div class="navbar-link">Repositories</div>
           <div class="navbar-dropdown">
@@ -22,5 +22,10 @@
         </div>
       </div>
     </div>
-  </nav>
+      {{#if env.DOCSEARCH_ENABLED}}
+      <div class="navbar-item">
+        <input id="search-input" type="text" placeholder="Search docs">
+      </div>
+      {{/if}}
+    </nav>
 </header>
